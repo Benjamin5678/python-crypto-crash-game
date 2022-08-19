@@ -10,18 +10,23 @@ def get_multiplier():
     return multiplier
 
 def animation(multiplier, bet_cashout):
+    #The ammount the multiplier is multiplied by each animation frame
+    interval = 1.01
+    #Delay between animation frames
+    delay = 0.1
+    
     animated_cashout = False
     animated_multiplier = 1
     
-    while(animated_multiplier * 1.01 < multiplier):
-        animated_multiplier = animated_multiplier * 1.05
+    while(animated_multiplier * interval < multiplier):
+        animated_multiplier = animated_multiplier * interval
         
         if((animated_multiplier > bet_cashout) & (animated_cashout == False)):
             print("---Cash out!---")
             animated_cashout = True
 
         print(animated_multiplier)
-        sleep(0.1)
+        sleep(delay)
     
     print(multiplier)
     print("CRASH!!!")
